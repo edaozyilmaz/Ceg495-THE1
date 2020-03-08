@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css" type="text/css">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/build/ol.js"></script>
+
+</head>
+<body>
+
+<div class="ui container">
+<div id="content" class="ui stackable centered page grid">
+<div class="sixteen wide column">
+<div class="ui raised segment">
+<div class="ui gray ribbon label">
+x Selected District: #{ilce}
+</div>
+
+<div class="eight wide column">
+<div class="ui bottom attached active tab segment inttab">
+
+</div>
+</div>
+<div class="ui raised segment">
+<div class="ui gray ribbon label">
+x Selected Parking Lot: #{parkadi}
+</div>
+<div class="ui raised segment">
+<div class="ui gray ribbon label">
+x Capacity: #{cap}
+</div>
+<div class="ui raised segment">
+<div class="ui gray ribbon label">
+x Empty Parking Lot: #{empty}
+</div>
+
+</body>
+</html>
+
+div#map(style={height: '500px', width: '100%'} class="map")
+script(type='text/javascript').
+    let map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([#{lon}, #{lat}]),
+            zoom: 15
+        })
+    });
+    let layer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            features: [
+                new ol.Feature({
+                    geometry: new ol.geom.Point(ol.proj.fromLonLat([#{lon}, #{lat}]))
+                })
+            ]
+        })
+    });
+    let iconStyle = new ol.style.Style({
+        image: new ol.style.Icon({
+            anchor: [0.5, 1],
+            src: '/images/icon.png'
+        })
+    });
+    layer.setStyle(iconStyle);
+    map.addLayer(layer);
+button(type="button" onclick='history.back()') Go Back

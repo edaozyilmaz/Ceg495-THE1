@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+    <div class="ui container">
+    <div id="content" class="ui stackable centered page grid">
+        <div class="sixteen wide column">
+            <div class="ui raised segment">
+                <div class="ui gray ribbon label">
+                    x Select a District:
+                </div>
+            </div>
+        </div>
+
+        <div class="eight wide column">
+            <div class="ui bottom attached active tab segment inttab">
+            </div>
+        </div>
+
+    <div id="footer" class="sticky-footer">
+    </div>
+</body>
+</html>
+form( method='post' action='park')
+    div.form-group
+        select(name='ilce', class='ilce', id='')
+            option="Select a District"
+            each ilce in list
+                option(value=ilce) #{ilce}
+        input(type="submit" value="Submit")

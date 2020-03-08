@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+</head>
+<body>
+
+    <div class="ui container">
+    <div id="content" class="ui stackable centered page grid">
+        <div class="sixteen wide column">
+            <div class="ui raised segment">
+                <div class="ui gray ribbon label">
+                    x Selected District:
+                </div>
+            </div>
+        </div>
+
+        <div class="eight wide column">
+            <div class="ui bottom attached active tab segment inttab">
+                <form class="ui form" id="my_form" enctype="application/x-www-form-urlencoded">
+
+                    <div class="field">
+                        <input id="ilce" type="name" step="any" name="ilce" class="i-field" placeholder=#{ilce} readonly>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="ui raised segment">
+        <div class="ui gray ribbon label">
+        x Select Parking Lot:
+        </div>
+        </div>
+
+    <div id="footer" class="sticky-footer">
+    </div>
+</body>
+</html>
+form( method='post' action='map')
+    div.form-group
+        select(name='selectpicker', class='selectpicker', id='')
+            option="Select an Option"
+            each park in list
+                option(value=park) #{park}
+        input(type="submit" value="Submit")
+        button(type="button" onclick='history.back()') Go Back
